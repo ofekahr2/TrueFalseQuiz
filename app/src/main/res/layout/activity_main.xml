@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:gravity="top|center_vertical"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/screen_bg">
+
 
     <!-- את הרכיבים שלכם מוסיפים כאן, בין שתי התגיות -->
 
