@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sec_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center_vertical"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/screen_bg">
+
+
+    <!-- את הרכיבים שלכם מוסיפים כאן, בין שתי התגיות -->
+
+    <TextView
+        android:id="@+id/sec_tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_vertical"
+        android:text="האם גרמניה יותר גדולה מצרפת?"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sec_btnTrue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="אמת" />
+
+        <Button
+            android:id="@+id/sec_btnFalse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="שקר" />
+
+    </LinearLayout>
+</LinearLayout>
