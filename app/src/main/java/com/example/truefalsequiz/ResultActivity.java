@@ -24,10 +24,14 @@ public class ResultActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         TextView tvResult = findViewById(R.id.tvResult);
+        TextView tvExplanation = findViewById(R.id.tvExplanation);
         View mainLayout = findViewById(R.id.result_main);
 
         boolean isCorrect = getIntent().getBooleanExtra("isCorrect", false);
+        String explanation = getIntent().getStringExtra("explanation");
+        int questionNum = getIntent().getIntExtra("questionNum", 1);
 
         if (isCorrect) {
             tvResult.setText("צדקת!, כל הכבוד");
@@ -36,14 +40,43 @@ public class ResultActivity extends AppCompatActivity {
             tvResult.setText("טעית..., איזה באסה");
             mainLayout.setBackgroundColor(getColor(R.color.result_wrong));
         }
+
+        if (explanation != null) {
+            tvExplanation.setText(explanation);
+        }
+
         Button btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResultActivity.this, SecondQuestionActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        if (questionNum == 1) {
+            btnBack.setText("לשאלה הבאה");
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ResultActivity.this, SecondQuestionActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        } else if (questionNum == 2) {
+            btnBack.setText("לשאלה הבאה");
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ResultActivity.this, ThirdQuestionActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        } else {
+            btnBack.setText("לשחק מחדש");
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
     }
 }

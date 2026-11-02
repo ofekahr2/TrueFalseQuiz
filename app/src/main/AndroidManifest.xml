@@ -22,11 +22,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ResultActivity"
+            android:name=".SecondQuestionActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".SecondQuestionActivity"
+            android:name=".ThirdQuestionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ResultActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
